@@ -12,6 +12,13 @@ object Application extends Controller {
   val htmlResult = Ok(<h1>Hello World1!</h1>).as("text/html")
   val htmlResult2 = Ok(<h1>Hello World2!</h1>).as(HTML)
 
+  val xmlResult = Ok(<message>Hello World!</message>)
+
+  val result_with_cookies = Ok("Hello world").withCookies(
+    Cookie("theme", "blue"))
+
+  val result3 = result.withCookies(Cookie("theme", "blue")).discardingCookies(DiscardingCookie("skin"))
+
 //  def index = Action {
 //    Ok(views.html.index("Your new application is ready."))
 //  }
@@ -24,7 +31,7 @@ object Application extends Controller {
   def hello(name: String) = Action {
 
     Ok("Hello " + name + "!")
-    result
+    result3
   }
 
 }
