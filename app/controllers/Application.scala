@@ -23,8 +23,30 @@ object Application extends Controller {
 //    Ok(views.html.index("Your new application is ready."))
 //  }
 
-  def index(name: String) = Action {
-    Ok(views.html.index(name))
+  def index = Action { request =>
+//    Ok(views.html.index(name))
+
+//    Ok("Welcome!").withSession(
+//      "connected" -> "user@gmail.com")
+
+
+//    request.session.get("connected").map { user =>
+//      Ok("Hello " + user)
+//    }.getOrElse {
+//      Unauthorized("Oops, you are not connected")
+//    }
+
+//    Ok("Bye").withNewSession
+
+
+    Ok {
+      request.flash.get("success").getOrElse("Welcome!")
+    }
+  }
+
+  def save = Action {
+    Redirect("/").flashing(
+      "success" -> "The item has been created")
   }
 
 

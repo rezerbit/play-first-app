@@ -1,6 +1,7 @@
-@(message: String)
+@(message: String)(implicit flash: Flash)
 
 @main("Welcome to Play2") {
+    @flash.get("success").getOrElse("Welcome!")
     <h1>Заголовок</h1>
    @* @play20.welcome(message) *@
 }
