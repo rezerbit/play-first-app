@@ -40,7 +40,7 @@ object Application extends Controller {
 
 
     Ok {
-      request.flash.get("success").getOrElse("Welcome!")
+      request.flash.get("success").getOrElse("Welcome!!")
     }
   }
 

@@ -4,7 +4,7 @@
 
 # Home page
 GET        /                    controllers.Application.index
-GET        /save                    controllers.Application.save
+GET        /save                   controllers.Application.save
 GET        /hello               controllers.Application.hello(name: String ?= "")
 
 
